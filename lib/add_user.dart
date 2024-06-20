@@ -1,56 +1,41 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:path/path.dart';
 
-class AddUser extends StatelessWidget {
-  const AddUser({super.key});
-
+class ImageUpload extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return  LoginScreen();
-  }
+  _ImageUploadState createState() => _ImageUploadState();
 }
 
-class LoginScreen extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+class _ImageUploadState extends State<ImageUpload> {
+  final ImagePicker _picker = ImagePicker();
 
-  LoginScreen({super.key});
+  Future<void> _uploadImage() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.camera); // You can use ImageSource.camera for camera
+    if (pickedFile != null) {
+      String fileName = basename(pickedFile.path);
+      Reference storageRef = FirebaseStorage.instance.ref().child('images/$fileName');
+      UploadTask uploadTask = storageRef.putFile(File(pickedFile.path));
+      await uploadTask;
+      String downloadURL = await storageRef.getDownloadURL();
+      print('Image uploaded to Firebase: $downloadURL');
+    } else {
+      print('No image selected.');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login to Add New User'),
-        backgroundColor: Colors.blue,
+        title: const Text('Image Upload'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: emailController,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextField(
-              controller: passwordController,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-              ),
-              obscureText: true,
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                String email = emailController.text;
-                String password = passwordController.text;
-                // Add your authentication logic here
-              },
-              child: const Text('Sign In'),
-            ),
-          ],
+      body: Center(
+        child: ElevatedButton(
+          onPressed: _uploadImage,
+          child: const Text('Upload Image'),
         ),
       ),
     );

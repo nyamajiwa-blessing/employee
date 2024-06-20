@@ -1,4 +1,4 @@
-import 'package:employee/add_user.dart';
+import 'package:employee/sign_in.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,8 +13,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      // Navigate to the main screen after 3 seconds
+    Future.delayed(const Duration(seconds: 5), () {
+      // Navigate to the main screen after 5 seconds
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MyHomePage()),
@@ -43,21 +43,38 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Colors.blue,
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('Add a new user or scan an existing one'),
-            const SizedBox(height: 20),
-           Align(
-              alignment: Alignment.bottomRight,
-              child: FloatingActionButton(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const AddUser()));
-              },
-              backgroundColor: Colors.blue,
-              child: const Icon(Icons.add),
+        child: SizedBox(
+          width: 150,
+          // color: Colors.g,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: () {
+                  // Add functionality for first button
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                ),
+                child: const Text('VERIFY'),
               ),
-            )
-          ],
+              const SizedBox(height: 16), // Add space between buttons
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                ),
+                child: const Text('ADD NEW'),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -66,6 +83,7 @@ class MyHomePage extends StatelessWidget {
 
 void main() {
   runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: SplashScreen(),
   ));
 }
