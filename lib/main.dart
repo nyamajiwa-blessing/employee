@@ -1,3 +1,4 @@
+import 'package:employee/add_user.dart';
 import 'package:employee/sign_in.dart';
 import 'package:employee/verify_user.dart';
 import 'package:flutter/material.dart';
@@ -56,13 +57,13 @@ class MyHomePage extends StatelessWidget {
                   // Add functionality for first button
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SelfieCapturePage()),
+                    MaterialPageRoute(builder: (context) => const CameraScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
-                  minimumSize: const Size(150, 50)
+                  minimumSize: const Size(250, 50)
                 ),
                 child: const Text('VERIFY'),
               ),
@@ -77,9 +78,9 @@ class MyHomePage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
-                  minimumSize: const Size(150, 50)
+                  minimumSize: const Size(250, 50)
                 ),
-                child: const Text('ADD NEW'),
+                child: const Text('SIGN IN'),
               ),
             ],
           ),

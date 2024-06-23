@@ -1,4 +1,5 @@
 // import 'package:employee/add_user.dart';
+import 'package:employee/dashboard.dart';
 import 'package:employee/details.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -57,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const EmployeeDetailsScreen()),
+                        builder: (context) => const AdminDashboardView()),
                   );
                 }
                 else if(email.isEmpty || password.isEmpty) {
