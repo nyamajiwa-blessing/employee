@@ -1,6 +1,5 @@
 // import 'package:employee/add_user.dart';
 import 'package:employee/dashboard.dart';
-import 'package:employee/details.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -38,6 +37,8 @@ class LoginScreen extends StatelessWidget {
               controller: emailController,
               decoration: const InputDecoration(
                 labelText: 'Email',
+                border: UnderlineInputBorder(),
+                icon: Icon(Icons.email),
               ),
             ),
             const SizedBox(height: 20),
@@ -45,6 +46,8 @@ class LoginScreen extends StatelessWidget {
               controller: passwordController,
               decoration: const InputDecoration(
                 labelText: 'Password',
+                border: UnderlineInputBorder(),
+                icon: Icon(Icons.password),
               ),
               obscureText: true,
             ),
@@ -87,7 +90,7 @@ class LoginScreen extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 foregroundColor: Colors.white,
-                minimumSize: const Size(150, 50)
+                minimumSize: const Size(250, 50)
               ),
               child: const Text('Sign In'),
             ),

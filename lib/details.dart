@@ -95,6 +95,11 @@ class _EmployeeDetailsScreenState extends State<EmployeeDetailsScreen> {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: _saveEntry,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
+                minimumSize: const Size(250, 50)
+              ),
               child: const Text('Save Entry'),
             ),
           ],

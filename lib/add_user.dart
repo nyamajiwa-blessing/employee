@@ -82,16 +82,27 @@ class _CameraScreenState extends State<CameraScreen> {
     }
     return Scaffold(
       body: CameraPreview(_controller),
+      drawerScrimColor: Colors.white,
       floatingActionButton: Row(
   mainAxisAlignment: MainAxisAlignment.end,
   children: <Widget>[
-    FloatingActionButton(
-      onPressed: _toggleCamera,
-      child: const Icon(Icons.switch_camera),
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: FloatingActionButton(
+        onPressed: _toggleCamera,
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+        child: const Icon(Icons.switch_camera),
+      ),
     ),
-    FloatingActionButton(
-      onPressed: _takePicture,
-      child: const Icon(Icons.camera),
+    Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: FloatingActionButton(
+        onPressed: _takePicture,
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+        child: const Icon(Icons.camera),
+      ),
     ),
   ],
   ),

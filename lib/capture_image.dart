@@ -52,7 +52,9 @@ class _CameraScreenState extends State<CameraScreen> {
           Expanded(
             child: _controller != null && _controller!.value.isInitialized
                 ? CameraPreview(_controller!)
-                : Container(),
+                : Container(
+                  color: Colors.blue,
+                ),
           ),
           ElevatedButton.icon(
             onPressed: () async {

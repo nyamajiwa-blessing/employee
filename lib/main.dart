@@ -1,6 +1,5 @@
 import 'package:employee/add_user.dart';
 import 'package:employee/sign_in.dart';
-import 'package:employee/verify_user.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
