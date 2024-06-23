@@ -41,6 +41,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Employee Verification'),
         backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
       ),
       body: Center(
         child: SizedBox(
@@ -52,6 +53,10 @@ class MyHomePage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Add functionality for first button
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => const CameraScreen()),
+                  // );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
