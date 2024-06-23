@@ -1,4 +1,5 @@
 import 'package:employee/sign_in.dart';
+import 'package:employee/verify_user.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -53,14 +54,15 @@ class MyHomePage extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   // Add functionality for first button
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const CameraScreen()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SelfieCapturePage()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
+                  minimumSize: const Size(150, 50)
                 ),
                 child: const Text('VERIFY'),
               ),
@@ -75,6 +77,7 @@ class MyHomePage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue,
                   foregroundColor: Colors.white,
+                  minimumSize: const Size(150, 50)
                 ),
                 child: const Text('ADD NEW'),
               ),

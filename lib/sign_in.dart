@@ -57,9 +57,21 @@ class LoginScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Details()),
+                        builder: (context) => const EmployeeDetailsScreen()),
                   );
-                } else {
+                }
+                else if(email.isEmpty || password.isEmpty) {
+                  Fluttertoast.showToast(
+                    msg: 'Complete all fields...',
+                    toastLength: Toast.LENGTH_LONG,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0,
+                  );
+                } 
+                else {
                   Fluttertoast.showToast(
                     msg: 'Incorrect Login Credentials',
                     toastLength: Toast.LENGTH_LONG,
@@ -74,6 +86,7 @@ class LoginScreen extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blue,
                 foregroundColor: Colors.white,
+                minimumSize: const Size(150, 50)
               ),
               child: const Text('Sign In'),
             ),
