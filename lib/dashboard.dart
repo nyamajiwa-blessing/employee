@@ -13,47 +13,17 @@ class AdminDashboardView extends StatelessWidget {
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
       ),
-      // body: Center(
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: <Widget>[
-      //       ElevatedButton(
-      //         onPressed: () {
-      //           Navigator.push(
-      //               context,
-      //               MaterialPageRoute(
-      //                   builder: (context) => const EmployeeDetailsScreen()),
-      //             );
-      //         },
-      //         style: ElevatedButton.styleFrom(
-      //           backgroundColor: Colors.blue,
-      //           foregroundColor: Colors.white,
-      //           minimumSize: const Size(250, 50),
-      //         ),
-      //         child: const Text('Add Employee'),
-      //       ),
-      //       const SizedBox(height: 16),
-      //       ElevatedButton(
-      //         onPressed: () {
-      //           Navigator.push(
-      //               context,
-      //               MaterialPageRoute(
-      //                   builder: (context) => const ResultsTable()),
-      //             );
-      //         },
-      //         style: ElevatedButton.styleFrom(
-      //           backgroundColor: Colors.blue,
-      //           foregroundColor: Colors.white,
-      //           minimumSize: const Size(250, 50),
-      //         ),
-      //         child: const Text('View Users'),
-      //       ),
-      //     ],
-      //   ),
-      // ),
+      body: const Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text('Add new or view existing employees from here.'),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.blue,
-        fixedColor: Colors.white,
+        // backgroundColor: Colors.blue,
+        // fixedColor: Colors.white,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.add),

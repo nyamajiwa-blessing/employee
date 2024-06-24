@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
 
 class CameraScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class _CameraScreenState extends State<CameraScreen> {
     CameraDescription newCamera =
         cameras.firstWhere((camera) => camera.lensDirection == newDirection);
     await _controller.dispose();
-      _controller = CameraController(newCamera, ResolutionPreset.medium);
+      _controller = CameraController(newCamera, ResolutionPreset.high);
     await _controller.initialize();
     setState(() {});
     }
@@ -98,7 +99,18 @@ class _CameraScreenState extends State<CameraScreen> {
     Padding(
       padding: const EdgeInsets.all(8.0),
       child: FloatingActionButton(
-        onPressed: _takePicture,
+        onPressed: (){
+          _takePicture;
+          Fluttertoast.showToast(
+                    msg: 'Image Captured...',
+                    toastLength: Toast.LENGTH_LONG,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.green,
+                    textColor: Colors.white,
+                    fontSize: 16.0,
+                  );
+        },
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         child: const Icon(Icons.camera),
